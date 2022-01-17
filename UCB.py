@@ -69,7 +69,8 @@ class UCBTable:
         pass
     
     def UCB(self,a):
-        UCB_score = self.actions_table[a][1]+sqrt(2*log2(self.T)/self.actions_table[a][0])
+        #?? the FORMULA of UCB should be more clearly
+        UCB_score = self.actions_table[a][1]/self.actions_table[a][0]+sqrt(2*log2(self.T)/self.actions_table[a][0])
         return UCB_score
         
             

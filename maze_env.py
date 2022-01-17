@@ -12,6 +12,8 @@ View more on my tutorial page: https://morvanzhou.github.io/tutorials/
 import numpy as np
 import time
 import sys
+#obs = np.random.binomial(n,p,size)
+
 # if sys.version_info.major == 2:
 #     import Tkinter as tk
 # else:

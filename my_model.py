@@ -109,19 +109,19 @@ class Maze(tk.Tk, object):
 
         # reward function
         if s_ == self.canvas.coords(self.oval1):
-            reward = 1
+            reward = np.random.binomial(1,0.9)
             done = True
             s_ = 'terminal'
         elif s_ == self.canvas.coords(self.oval2):
-            reward = 0.8
+            reward = np.random.binomial(1,0.7)
             done = True
             s_ = 'terminal'
         elif s_ in [self.canvas.coords(self.hell1), self.canvas.coords(self.hell2)]:
-            reward = 0
+            reward = np.random.binomial(1,0.2)
             done = True
             s_ = 'terminal'
         else:
-            reward = 0.5
+            reward = np.random.binomial(1,0.5)
             done = True
             s_ = 'terminal'
             # done = False
