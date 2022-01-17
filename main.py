@@ -9,7 +9,7 @@ The RL is in RL_brain.py.
 View more on my tutorial page: https://morvanzhou.github.io/tutorials/
 """
 
-from maze_env import Maze
+from my_model import Maze
 from Qlearn import QLearningTable
 
 
