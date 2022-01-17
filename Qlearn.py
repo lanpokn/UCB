@@ -1,12 +1,14 @@
+"""
+This part of code is the Q learning brain, which is a brain of the agent.
+All decisions are made in here.
+View more on my tutorial page: https://morvanzhou.github.io/tutorials/
+"""
+
 import numpy as np
 import pandas as pd
-import scipy.signal
-from gym.spaces import Box, Discrete
 
-# I may need a table to memory each Gaossian score,mean,variance?
-#from mofan education
 
-class UCBTable:
+class QLearningTable:
     def __init__(self, actions, learning_rate=0.01, reward_decay=0.9, e_greedy=0.9):
         self.actions = actions  # a list
         self.lr = learning_rate
