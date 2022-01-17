@@ -18,10 +18,10 @@ class UCBTable:
         self.actions_table = {}
         for action in actions:
             self.actions_table.update({action:[0,0]})#  [chosen times,total score]
-        # self.lr = learning_rate
-        # self.gamma = reward_decay
-        # self.epsilon = e_greedy
-        self.q_table = pd.DataFrame(columns=self.actions, dtype=np.float64)
+
+        #used to anlysis result
+        self.UCBtable =[0,0,0,0]
+        self.max_index =0 
     
     def choose_action(self, observation):
         self.check_state_exist(observation)
@@ -36,18 +36,18 @@ class UCBTable:
         #     action = np.random.choice(self.actions)
         
         #choose best UCB
-        max_index = 0
         max_UCB = 0
         index = 0 
         for action in self.actions:
             temp_score = self.UCB(action)
             if(temp_score>max_UCB):
                 max_UCB = temp_score
-                max_index = index
+                self.max_index = index
             index+=1
         self.T +=1
-        print(max_UCB)
-        return self.actions[max_index]
+        self.UCBtable[self.max_index] = max_UCB
+        # print(max_UCB)
+        return self.actions[self.max_index]
 
     def learn(self, state, action, reward, state_next,init = False):
         self.check_state_exist(state_next)
